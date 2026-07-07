@@ -1,0 +1,107 @@
+/* ==========================================
+   CSS RESET
+========================================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:var(--body-font);
+    background:var(--background-color);
+    color:var(--text-primary);
+    overflow-x:hidden;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+.container{
+    width:min(90%, var(--container-width));
+    margin:auto;
+}
+
+/* ==========================================
+   Header
+========================================== */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    transition:var(--transition);
+}
+
+.navbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    height:90px;
+}
+
+.logo{
+
+    font-family:var(--heading-font);
+    font-size:2rem;
+    letter-spacing:1px;
+    color:var(--text-primary);
+}
+
+.nav-links{
+
+    display:flex;
+    gap:2.5rem;
+}
+
+.nav-links a{
+
+    font-size:0.95rem;
+    font-weight:500;
+    transition:var(--transition);
+}
+
+.nav-links a:hover{
+
+    color:var(--secondary-color);
+}
+
+.btn-order{
+
+    background:var(--primary-color);
+    color:white;
+
+    padding:12px 26px;
+
+    border-radius:var(--radius-md);
+
+    transition:var(--transition);
+}
+
+.btn-order:hover{
+
+    background:var(--secondary-color);
+    color:#111;
+}
