@@ -1,0 +1,52 @@
+/* ==========================================
+   HERO ANIMATION
+========================================== */
+
+.hero-content {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+.hero-content.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero-image {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.9s ease;
+}
+
+.hero-image.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* ==========================================
+   SCROLL REVEAL
+========================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Menu Card Delay */
+
+.menu-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.menu-card:nth-child(2) {
+    transition-delay: 0.25s;
+}
+
+.menu-card:nth-child(3) {
+    transition-delay: 0.4s;
+}
