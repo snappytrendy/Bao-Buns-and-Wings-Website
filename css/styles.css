@@ -63,15 +63,17 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.9rem 2rem;
+  padding: 0.95rem 2rem;
   border-radius: 999px;
   font-family: var(--body-font);
   font-size: var(--fs-base);
   font-weight: 600;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s ease;
 }
-
+.btn:hover {
+  transform: translateY(-3px);
+}
 .btn-primary {
   background-color: var(--primary-color);
   color: var(--text-primary);
@@ -212,27 +214,105 @@ section {
   gap: 2.5rem;
 }
 
-.btn {
-  flex-shrink: 0;
-}
 /* ==========================================
    HERO
 ========================================== */
 
 .hero {
-  min-height: auto;
-  padding: 7rem 0 5rem;
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.15;
+  z-index: 0;
+}
+/* Decorative Food Icons */
+
+.hero-decoration {
+  position: absolute;
+  font-size: 6rem;
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+  filter: blur(1px);
+  animation: float 8s ease-in-out infinite;
 }
 
+/* Top Left */
+.hero-decoration-1 {
+  top: 8%;
+  left: 4%;
+  transform: rotate(-18deg);
+}
+
+/* Bottom Left */
+.hero-decoration-2 {
+  bottom: 10%;
+  left: 6%;
+  font-size: 5rem;
+  animation-delay: 2s;
+}
+
+/* Top Right */
+.hero-decoration-3 {
+  top: 12%;
+  right: 5%;
+  animation-delay: 4s;
+}
+
+/* Bottom Right */
+.hero-decoration-4 {
+  bottom: 8%;
+  right: 6%;
+  font-size: 5rem;
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(5deg);
+  }
+}
+.hero::before {
+  width: 420px;
+  height: 420px;
+  background: var(--primary-color);
+  top: -180px;
+  left: -180px;
+}
+
+.hero::after {
+  width: 350px;
+  height: 350px;
+  background: var(--secondary-color);
+  bottom: -150px;
+  right: -120px;
+}
 .hero .container {
+  width: min(95%, 1400px);
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 .hero-content {
+  justify-self: start;
   max-width: 600px;
   display: flex;
   flex-direction: column;
@@ -241,31 +321,30 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-
-  margin-bottom: 1rem;
-
+  margin-bottom: 1.3rem;
   color: var(--secondary-color);
   font-weight: 600;
   font-size: 0.95rem;
 }
 .hero-title {
   font-family: var(--body-font);
-  font-size: 4.8rem;
+  font-size: clamp(3.5rem, 6vw, 4.5rem);
   font-weight: 800;
-  line-height: 1.08;
-  margin: 0 0 2rem;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 1.8rem;
 }
 .hero-description {
-  max-width: 520px;
-  font-size: 1.1rem;
+  max-width: 460px;
+  font-size: 1.05rem;
   line-height: 1.8;
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: 1.15rem;
 }
 .hero-buttons {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
 }
 /* ==========================================
    HERO IMAGE
@@ -274,24 +353,26 @@ section {
 .hero-image {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-self: end;
   align-items: center;
 }
-
 .hero-image img {
   width: 100%;
-  max-width: 500px;
+  max-width: 620px;
+  border-radius: 24px;
   position: relative;
   z-index: 2;
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.45),
+    0 0 50px rgba(255, 193, 7, 0.12);
+
+  transition: transform 0.4s ease;
 }
 .hero-image-bg {
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  background: rgba(244, 180, 0, 0.15);
-  border-radius: 50%;
-  filter: blur(70px);
-  z-index: 1;
+  width: 450px;
+  height: 450px;
+  opacity: 0.7;
 }
 /* ===========================
    FEATURED MENU
