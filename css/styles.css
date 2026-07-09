@@ -172,17 +172,19 @@ section {
 }
 
 .logo-img {
-  width: 58px;
-  height: 58px;
-  object-fit: cover;
+  width: 55px;
+
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-  transition: all 0.3s ease;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .logo-img:hover {
-  transform: rotate(8deg) scale(1.08);
+  transform: scale(1.12);
+
+  box-shadow: 0 0 25px rgba(244, 180, 0, 0.45);
 }
 
 .logo-text {
@@ -190,8 +192,11 @@ section {
   font-weight: 700;
   color: var(--secondary-color);
   letter-spacing: 0.5px;
+  transition: color 0.3s ease;
 }
-
+.logo:hover .logo-text {
+  color: var(--secondary-color);
+}
 /* ==========================================
    NAVIGATION LAYOUT
 ========================================== */
@@ -459,20 +464,41 @@ ABOUT
 
 .about-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.9fr 1.1fr;
   align-items: center;
-  gap: 5rem;
+  gap: 6rem;
 }
 
 .about-image {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
+.about-image img:hover {
+  transform: translateY(-10px) scale(1.03);
 
+  box-shadow:
+    0 25px 60px rgba(244, 180, 0, 0.25),
+    0 20px 50px rgba(0, 0, 0, 0.35);
+}
 .about-image img {
-  width: 380px;
+  width: 320px;
   max-width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
-
+.about-image::before {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  background: rgba(244, 180, 0, 0.08);
+  z-index: -1;
+}
 .about-content span {
   color: var(--secondary-color);
   font-weight: 700;
@@ -499,15 +525,31 @@ ABOUT
 }
 
 .feature {
-  background: #1a1a1a;
-  padding: 1rem;
+  background: var(--surface-color);
+  padding: 1.2rem;
   border-radius: 12px;
   font-weight: 600;
-  transition: 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
 }
 
 .feature:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+
+  background: rgba(244, 180, 0, 0.08);
+
+  border-color: var(--secondary-color);
+}
+.feature span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.feature:hover span {
+  transform: scale(1.2) rotate(8deg);
 }
 /*=========================
 WHY CHOOSE US
@@ -671,7 +713,18 @@ FOOTER
 .footer ul li {
   margin-bottom: 0.8rem;
 }
+.footer-contact p {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+  cursor: pointer;
+}
 
+.footer-contact p:hover {
+  color: var(--secondary-color);
+
+  transform: translateX(6px);
+}
 .footer a {
   display: block;
   color: var(--text-secondary);
@@ -698,4 +751,19 @@ FOOTER
 .footer-bottom p {
   color: #888;
   font-size: 0.9rem;
+}
+.footer-logo {
+  width: 120px;
+  border-radius: 50%;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.footer-logo:hover {
+  transform: translateY(-8px) scale(1.05);
+
+  box-shadow:
+    0 20px 45px rgba(244, 180, 0, 0.25),
+    0 10px 30px rgba(0, 0, 0, 0.4);
 }
