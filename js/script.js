@@ -1,6 +1,17 @@
+// Prevent browser from restoring the previous scroll position
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
 window.addEventListener("load", () => {
+
+  // Always start at the top
+  window.scrollTo(0, 0);
+
+  // Hero animation
   document.querySelector(".hero-content").classList.add("show");
   document.querySelector(".hero-image").classList.add("show");
+
 });
 // ==========================================
 // SCROLL REVEAL
