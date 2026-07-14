@@ -401,7 +401,10 @@ section{
 @media (max-width:400px){
 
 /* ========= GLOBAL ========= */
-
+ body {
+    overflow-x: hidden;
+  }
+  
 .container{
     width:92%;
     max-width:100%;
